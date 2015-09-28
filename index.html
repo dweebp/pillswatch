@@ -1,3 +1,33 @@
-<body ng-app="PillsWatch">
-    <div ng-include="'index.ng.html'"></div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body ng-app="pillsWatch" layout="column">
+    <md-toolbar md-scroll-shrink layout="row" layout-align="start center" layout-padding>
+        <h2>
+    <span class="md-title">pills_watch</span>
+  </h2>
+        <span flex></span>
+        <md-menu>
+            <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+                <i class="material-icons" style="font-size: 36px">apps</i>
+            </md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ui-sref="home">Home</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ui-sref="healthTopics">Topics</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+    </md-toolbar>
+    <md-content>
+        <div ui-view></div>
+
+    </md-content>
 </body>

@@ -8,3 +8,7 @@ meteor-platform
 autopublish
 insecure
 angular
+angularui:angular-ui-router
+angular:angular-material
+fourseven:scss
+maazalik:highcharts
