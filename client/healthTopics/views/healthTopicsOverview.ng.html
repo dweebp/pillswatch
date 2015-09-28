@@ -1,0 +1,59 @@
+<h1>healthTopicsOverview</h1>
+<button ng-click="removeAllTopics()">remove all</button>
+<form>
+    <label for="newHealthTopic.name">
+
+    </label>
+    <input type="text" ng-model="newHealthTopic.name">
+
+    <label>
+
+    </label>
+    <input type="text" ng-model="newHealthTopic.description">
+    <button ng-click="addTopic(newHealthTopic)">+</button>
+</form>
+<md-card class="topics-list" ng-repeat="topic in healthTopics">
+    <md-card-content>
+        <div>
+            <div layout="row" layout-fill layout-padding>
+                <div flex>
+                    <h2>{{topic.name}}</h2>
+
+                </div>
+                <div flex="5">
+                    <a ui-sref="healthTopicsDetail({healthTopicId: topic._id})">
+
+                        <i class="material-icons" style="font-size: 3em">forward</i>
+                    </a>
+                </div>
+            </div>
+            <div layout="row" layout-fill layout-padding>
+                <div flex="75">
+                    <div layout="row">{{topic.description}}</div>
+                    <div layout="row">
+
+
+                        <span ng-if="topic.units">{{topic.units}}</span>
+                        <span ng-if="topic.okLevel">{{topic.okLevel[0]}} - {{topic.okLevel[1]}}</span>
+                        <span ng-if="topic.checks">{{topic.checks[topic.checks.length - 1].date | date:'dd.M.yy'}}</span>
+                    </div>
+
+
+                </div>
+                <div flex>
+                    <span ng-if="topic.checks[topic.checks.length - 1].result < topic.okLevel[0]">LOW</span>
+                    <span ng-if="topic.checks[topic.checks.length - 1].result > topic.okLevel[1]">HIGH</span>
+                    <span ng-if="topic.checks[topic.checks.length - 1].result > topic.okLevel[0] && topic.checks[topic.checks.length - 1].result < topic.okLevel[1]">OK</span> {{topic.checks[topic.checks.length - 1].result}}
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </md-card-content>
+    <md-card-actions>
+
+        <button ng-click="removeTopic(topic)">X</button>
+    </md-card-actions>
+</md-card>
