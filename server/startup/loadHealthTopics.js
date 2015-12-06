@@ -6,10 +6,38 @@ Meteor.startup(function () {
                 'description': 'nějaký ten popis',
                 'units': 'INR',
                 'okLevel': [2.5, 3.5],
-                checks: [
+                'checks': [
                     {
-                        'date': new Date(),
+                        'date': new Date().setDate(2),
                         'result': '2.15'
+                    },
+                    {
+                        'date': new Date().setDate(3),
+                        'result': '3.13'
+                    },
+                    {
+                        'date': new Date().setDate(4),
+                        'result': '2.44'
+                    },
+                    {
+                        'date': new Date().setDate(5),
+                        'result': '5.15'
+                    },
+                    {
+                        'date': new Date().setDate(9),
+                        'result': '2.16'
+                    },
+                    {
+                        'date': new Date().setDate(13),
+                        'result': '1.25'
+                    },
+                    {
+                        'date': new Date().setDate(16),
+                        'result': '2.88'
+                    },
+                    {
+                        'date': new Date().setDate(25),
+                        'result': '2.25'
                     }
                 ]
                 }

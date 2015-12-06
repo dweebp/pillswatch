@@ -1,4 +1,24 @@
-.topics-list {
-    background: rgba(81, 160, 96, 0.28);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.82), 0 1px 1px rgba(0, 0, 0, 1);
+.healthTopics {
+    .addNewBar {
+        background-color: beige;
+        md-icon {
+            font-size: 30px;
+            cursor: pointer;
+            &:hover {
+                color: blue;
+            }
+        }
+        .icons {
+            md-icon {
+                float: left;
+            }
+        }
+        .deleteAll {
+            display: block;
+            float: right;
+            md-icon {
+                color: red
+            }
+        }
+    }
 }

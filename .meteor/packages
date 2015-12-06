@@ -11,4 +11,6 @@ angular
 angularui:angular-ui-router
 angular:angular-material
 fourseven:scss
-maazalik:highcharts
+accounts-ui
+angular:angular-animate
+dotansimha:angular-google-chart

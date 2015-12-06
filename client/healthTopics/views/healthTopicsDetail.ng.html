@@ -4,45 +4,51 @@
             <md-card-content>
 
                 <h1> {{healthTopic.name}}</h1>
-            </md-card-content>
-        </md-card>
-
-    </div>
-</div>
-
-
-<div layout="row">
-    <div flex="75">
-        <md-card>
-            <md-card-content>
                 <div layout="row">
-                    <div flex="">
+                    <div flex="75">
+                        <md-card>
+                            <md-card-content>
+                                <div layout="row">
+                                    <div flex="">
 
-                        {{healthTopic.description}}
+                                        {{healthTopic.description}} {{healthTopic}}
+                                    </div>
+                                    <div flex="25">
+                                        <div layout="column">
+                                            <div>
+
+                                                <span ng-if="healthTopic.units">{{healthTopic.units}}</span>
+                                                <span ng-if="healthTopic.okLevel">{{healthTopic.okLevel[0]}} - {{healthTopic.okLevel[1]}}</span>
+                                            </div>
+                                            <span ng-if="healthTopic.checks">{{healthTopic.checks[healthTopic.checks.length - 1].date | date:'dd.M.yy'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-card-content>
+                        </md-card>
                     </div>
-                    <div flex="25">
-                        <div layout="column">
-                            <div>
+                    <div flex layout="row">
+                        <md-card flex>
+                            <md-card-content>
 
-                                <span ng-if="healthTopic.units">{{healthTopic.units}}</span>
-                                <span ng-if="healthTopic.okLevel">{{healthTopic.okLevel[0]}} - {{healthTopic.okLevel[1]}}</span>
-                            </div>
-                            <span ng-if="healthTopic.checks">{{healthTopic.checks[healthTopic.checks.length - 1].date | date:'dd.M.yy'}}</span>
-                        </div>
+                                <span ng-if="healthTopic.checks[healthTopic.checks.length - 1].result < healthTopic.okLevel[0]">LOW</span>
+
+                                <span ng-if="healthTopic.checks[healthTopic.checks.length - 1].result > healthTopic.okLevel[1]">HIGH</span>
+                                <span ng-if="healthTopic.checks[healthTopic.checks.length - 1].result > healthTopic.okLevel[0] && healthTopic.checks[healthTopic.checks.length - 1].result < healthTopic.okLevel[1]">OK</span> {{healthTopic.checks[healthTopic.checks.length - 1].result}}
+                            </md-card-content>
+                        </md-card>
+                    </div>
+                    <div flex layout="row">
+                        <md-card flex>
+                            <md-card-content>
+                                graph
+                                <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick"></canvas>
+                            </md-card-content>
+                        </md-card>
                     </div>
                 </div>
             </md-card-content>
         </md-card>
-    </div>
-    <div flex layout="row">
-        <md-card flex>
-            <md-card-content>
 
-                <span ng-if="healthTopic.checks[healthTopic.checks.length - 1].result < healthTopic.okLevel[0]">LOW</span>
-
-                <span ng-if="healthTopic.checks[healthTopic.checks.length - 1].result > healthTopic.okLevel[1]">HIGH</span>
-                <span ng-if="healthTopic.checks[healthTopic.checks.length - 1].result > healthTopic.okLevel[0] && healthTopic.checks[healthTopic.checks.length - 1].result < healthTopic.okLevel[1]">OK</span> {{healthTopic.checks[healthTopic.checks.length - 1].result}}
-            </md-card-content>
-        </md-card>
     </div>
 </div>
